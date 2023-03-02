@@ -2565,14 +2565,7 @@
             "in": "query",
             "description": "The channel for the messages you wish to list",
             "schema": {
-              "enum": [
-                "in_app",
-                "email",
-                "sms",
-                "chat",
-                "push"
-              ],
-              "type": "string"
+              "$ref": "#/components/schemas/GetMessagesParametersSchema"
             }
           },
           {
@@ -4002,7 +3995,7 @@
             "$ref": "#/components/schemas/SubscriberPayloadDto"
           },
           {
-            "type": "[SubscriberPayloadDto]",
+            "type": "list<$ref: #/components/schemas/SubscriberPayloadDto>",
             "description": "List of subscriber objects"
           },
           {
@@ -4010,7 +4003,7 @@
             "description": "Unique identifier of a subscriber in your systems"
           },
           {
-            "type": "[string]",
+            "type": "string",
             "description": "List of subscriber identifiers"
           },
           {
@@ -4728,7 +4721,7 @@
       "MessageResponseDtoContent": {
         "oneOf": [
           {
-            "type": "[EmailBlock]"
+            "$ref": "#/components/schemas/EmailBlock"
           },
           {
             "type": "string"
@@ -4872,6 +4865,16 @@
           "payload",
           "overrides"
         ]
+      },
+      "GetMessagesParametersSchema": {
+        "enum": [
+          "in_app",
+          "email",
+          "sms",
+          "chat",
+          "push"
+        ],
+        "type": "string"
       },
       "MessagesResponseDto": {
         "type": "object",
@@ -5343,6 +5346,7 @@
           "transactionId"
         ]
       },
+
       "ActivitiesResponseDto": {
         "type": "object",
         "properties": {
