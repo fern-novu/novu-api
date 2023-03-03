@@ -1210,6 +1210,9 @@
             }
           }
         },
+        "tags": [
+          "Events"
+        ],
         "responses": {
           "201": {
             "content": {
@@ -1222,9 +1225,6 @@
             "description": ""
           }
         },
-        "tags": [
-          "Events"
-        ],
         "x-request-name": "EventsController_trackEventRequest"
       }
     },
@@ -2703,7 +2703,12 @@
       "description": ""
     }
   ],
-  "servers": [],
+  "servers": [
+    {
+      "url": "https://api.novu.co/v1",
+      "x-server-name": "Production"
+    }
+  ],
   "components": {
     "schemas": {
       "GetMxRecordResponseDto": {
@@ -5507,6 +5512,14 @@
           "acknowledged",
           "status"
         ]
+      }
+    },
+    "securitySchemes": {
+      "x-api-key": {
+        "name": "x-api-key",
+        "type": "apiKey",
+        "in": "header",
+        "description": "API keys are used to authenticate the requests."
       }
     }
   }
