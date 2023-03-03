@@ -3,7 +3,7 @@
   "paths": {
     "/v1/inbound-parse/mx/status": {
       "get": {
-        "operationId": "get",
+        "operationId": "getMxRecord",
         "summary": "Validate the mx record setup for the inbound parse functionality",
         "parameters": [],
         "responses": {
@@ -29,7 +29,7 @@
     },
     "/v1/environments/me": {
       "get": {
-        "operationId": "get",
+        "operationId": "getCurrent",
         "summary": "Get current environment",
         "parameters": [],
         "responses": {
@@ -83,7 +83,7 @@
         "x-request-name": "EnvironmentsController_createEnvironmentRequest"
       },
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get environments",
         "parameters": [],
         "responses": {
@@ -109,7 +109,7 @@
     },
     "/v1/environments/{environmentId}": {
       "put": {
-        "operationId": "update",
+        "operationId": "updateById",
         "summary": "Update env by id",
         "parameters": [
           {
@@ -144,7 +144,7 @@
     },
     "/v1/environments/api-keys": {
       "get": {
-        "operationId": "get",
+        "operationId": "getAPIKey",
         "summary": "Get api keys",
         "parameters": [],
         "responses": {
@@ -196,7 +196,7 @@
     },
     "/v1/environments/widget/settings": {
       "put": {
-        "operationId": "update",
+        "operationId": "updateSettings",
         "summary": "Update widget settings",
         "parameters": [],
         "requestBody": {
@@ -260,7 +260,7 @@
         "x-request-name": "NotificationGroupsController_createNotificationGroupRequest"
       },
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get notification groups",
         "parameters": [],
         "responses": {
@@ -286,7 +286,7 @@
     },
     "/v1/changes": {
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get changes",
         "parameters": [
           {
@@ -338,7 +338,7 @@
     },
     "/v1/changes/count": {
       "get": {
-        "operationId": "get",
+        "operationId": "getCount",
         "summary": "Get changes count",
         "parameters": [],
         "responses": {
@@ -361,7 +361,7 @@
     },
     "/v1/changes/bulk/apply": {
       "post": {
-        "operationId": "apply",
+        "operationId": "applyAll",
         "summary": "Apply changes",
         "parameters": [],
         "responses": {
@@ -667,7 +667,7 @@
     },
     "/v1/execution-details": {
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get execution details",
         "parameters": [
           {
@@ -710,7 +710,7 @@
     },
     "/v1/notification-templates": {
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get notification templates",
         "parameters": [
           {
@@ -751,7 +751,7 @@
         "x-request-name": "NotificationTemplateController_getNotificationTemplatesRequest"
       },
       "post": {
-        "operationId": "create",
+        "operationId": "createTemplate",
         "summary": "Create notification template",
         "parameters": [],
         "requestBody": {
@@ -886,7 +886,7 @@
     },
     "/v1/notification-templates/{templateId}/blueprint": {
       "get": {
-        "operationId": "get",
+        "operationId": "getBlueprint",
         "parameters": [
           {
             "name": "templateId",
@@ -932,7 +932,7 @@
     },
     "/v1/notification-templates/{templateId}/status": {
       "put": {
-        "operationId": "update",
+        "operationId": "updateById",
         "summary": "Update notification template status",
         "parameters": [
           {
@@ -1031,7 +1031,7 @@
     },
     "/v1/integrations/active": {
       "get": {
-        "operationId": "get",
+        "operationId": "getActive",
         "summary": "Get active integrations",
         "parameters": [],
         "responses": {
@@ -1057,7 +1057,7 @@
     },
     "/v1/integrations/webhook/provider/{providerId}/status": {
       "get": {
-        "operationId": "get",
+        "operationId": "getSupportStatus",
         "summary": "Get webhook support status for provider",
         "parameters": [
           {
@@ -1157,7 +1157,7 @@
     },
     "/v1/integrations/{channelType}/limit": {
       "get": {
-        "operationId": "get",
+        "operationId": "getLimit",
         "parameters": [
           {
             "name": "channelType",
@@ -1181,7 +1181,7 @@
     },
     "/v1/integrations/in-app/status": {
       "get": {
-        "operationId": "get",
+        "operationId": "getStatus",
         "parameters": [],
         "responses": {
           "200": {
@@ -1230,7 +1230,7 @@
     },
     "/v1/events/trigger/bulk": {
       "post": {
-        "operationId": "trigger",
+        "operationId": "triggerBulk",
         "summary": "Bulk trigger event",
         "description": "\n      Using this endpoint you can trigger multiple events at once, to avoid multiple calls to the API.\n      The bulk API is limited to 100 events per request.\n    ",
         "parameters": [],
@@ -1267,7 +1267,7 @@
     },
     "/v1/events/trigger/broadcast": {
       "post": {
-        "operationId": "broadcast",
+        "operationId": "broadcastEvent",
         "summary": "Broadcast event to all",
         "description": "Trigger a broadcast event to all existing subscribers, could be used to send announcements, etc.\n      In the future could be used to trigger events to a subset of subscribers based on defined filters.",
         "parameters": [],
@@ -1334,7 +1334,7 @@
     },
     "/v1/subscribers": {
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get subscribers",
         "description": "Returns a list of subscribers, could paginated using the `page` query parameter",
         "parameters": [
@@ -1505,7 +1505,7 @@
     },
     "/v1/subscribers/{subscriberId}/credentials": {
       "put": {
-        "operationId": "update",
+        "operationId": "updateCredentials",
         "summary": "Update subscriber credentials",
         "description": "Subscriber credentials associated to the delivery methods such as slack and push tokens.",
         "parameters": [
@@ -1548,7 +1548,7 @@
     },
     "/v1/subscribers/{subscriberId}/online-status": {
       "patch": {
-        "operationId": "update",
+        "operationId": "updateStatus",
         "summary": "Update subscriber online status",
         "description": "Used to update the subscriber isOnline flag.",
         "parameters": [
@@ -1591,7 +1591,7 @@
     },
     "/v1/subscribers/{subscriberId}/preferences": {
       "get": {
-        "operationId": "get",
+        "operationId": "getPreferences",
         "summary": "Get subscriber preferences",
         "parameters": [
           {
@@ -1626,7 +1626,7 @@
     },
     "/v1/subscribers/{subscriberId}/preferences/{templateId}": {
       "patch": {
-        "operationId": "update",
+        "operationId": "updatePreferences",
         "summary": "Update subscriber preference",
         "parameters": [
           {
@@ -1676,7 +1676,7 @@
     },
     "/v1/subscribers/{subscriberId}/notifications/feed": {
       "get": {
-        "operationId": "get",
+        "operationId": "getFeed",
         "summary": "Get a notification feed for a particular subscriber",
         "parameters": [
           {
@@ -1732,7 +1732,7 @@
     },
     "/v1/subscribers/{subscriberId}/notifications/unseen": {
       "get": {
-        "operationId": "get",
+        "operationId": "getCount",
         "summary": "Get the unseen notification count for subscribers feed",
         "parameters": [
           {
@@ -1772,7 +1772,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/{messageId}/seen": {
       "post": {
-        "operationId": "create",
+        "operationId": "markSeen",
         "summary": "Mark a subscriber feed message as seen",
         "description": "This endpoint is deprecated please address /:subscriberId/messages/markAs instead",
         "deprecated": true,
@@ -1814,7 +1814,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/markAs": {
       "post": {
-        "operationId": "markAs",
+        "operationId": "markAllSeen",
         "summary": "Mark a subscriber feed message as seen",
         "parameters": [
           {
@@ -1856,7 +1856,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/{messageId}/actions/{type}": {
       "post": {
-        "operationId": "markAsSeen",
+        "operationId": "markActionSeen",
         "summary": "Mark message action as seen",
         "parameters": [
           {
@@ -2224,7 +2224,7 @@
     },
     "/v1/activity/stats": {
       "get": {
-        "operationId": "get",
+        "operationId": "getActivityStats",
         "summary": "Get activity statistics",
         "deprecated": true,
         "parameters": [],
@@ -2248,7 +2248,7 @@
     },
     "/v1/activity/graph/stats": {
       "get": {
-        "operationId": "get",
+        "operationId": "getActivityGraphStats",
         "summary": "Get activity graph statistics",
         "deprecated": true,
         "parameters": [
@@ -2284,7 +2284,7 @@
     },
     "/v1/notifications": {
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get notifications",
         "parameters": [
           {
@@ -2373,7 +2373,7 @@
     },
     "/v1/notifications/stats": {
       "get": {
-        "operationId": "get",
+        "operationId": "getNotificationStats",
         "summary": "Get notification statistics",
         "parameters": [],
         "responses": {
@@ -2396,7 +2396,7 @@
     },
     "/v1/notifications/graph/stats": {
       "get": {
-        "operationId": "get",
+        "operationId": "getNotificationGraphStats",
         "summary": "Get notification graph statistics",
         "parameters": [
           {
@@ -2494,7 +2494,7 @@
         "x-request-name": "FeedsController_createFeedRequest"
       },
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get feeds",
         "parameters": [],
         "responses": {
@@ -2555,7 +2555,7 @@
     },
     "/v1/messages": {
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get messages",
         "description": "Returns a list of messages, could paginate using the `page` query parameter",
         "parameters": [
