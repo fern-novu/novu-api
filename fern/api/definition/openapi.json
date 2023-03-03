@@ -4207,6 +4207,13 @@
         ],
         "description": "Subscriber credentials for channel"
       },
+      "ChannelSettingsCredentials":{
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ChannelCredentials"
+          }
+        ]
+      },
       "ChannelSettings": {
         "type": "object",
         "properties": {
@@ -4219,11 +4226,7 @@
           },
           "credentials": {
             "description": "Subscriber credentials for channel",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChannelCredentials"
-              }
-            ]
+            "$ref": "#/components/schemas/ChannelSettingsCredentials"
           }
         },
         "required": [
@@ -4407,6 +4410,13 @@
         ],
         "description": "The provider identifier for the credentials"
       },
+      "UpdateSubscriberChannelRequestDtoCredentials":{
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ChannelCredentials"
+          }
+        ]
+      },
       "UpdateSubscriberChannelRequestDto": {
         "type": "object",
         "properties": {
@@ -4415,11 +4425,7 @@
           },
           "credentials": {
             "description": "Credentials payload for the specified provider",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChannelCredentials"
-              }
-            ]
+            "$ref": "#/components/schemas/UpdateSubscriberChannelRequestDtoCredentials"
           }
         },
         "required": [
@@ -4482,6 +4488,13 @@
           "name",
           "critical"
         ]
+      }, 
+      "PrefenceChannel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PreferenceChannels"
+          }
+        ]
       },
       "Preference": {
         "type": "object",
@@ -4492,11 +4505,7 @@
           },
           "channels": {
             "description": "Subscriber preferences for the different channels regarding this notification template",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PreferenceChannels"
-              }
-            ]
+            "$ref": "#/components/schemas/PrefenceChannel"
           }
         },
         "required": [
@@ -4504,24 +4513,30 @@
           "channels"
         ]
       },
+      "UpdateSubscriberPreferenceResponseDtoPreference": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Preference"
+          }
+        ]
+      },
+      "UpdateSubscriberPreferenceResponseDtoTemplate": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TemplateResponse"
+          }
+        ]
+      },
       "UpdateSubscriberPreferenceResponseDto": {
         "type": "object",
         "properties": {
           "template": {
             "description": "The notification template information and if it is critical or not",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/TemplateResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UpdateSubscriberPreferenceResponseDtoTemplate"
           },
           "preference": {
             "description": "The preferences of the subscriber regarding the related notification template",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Preference"
-              }
-            ]
+            "$ref": "#/components/schemas/UpdateSubscriberPreferenceResponseDtoPreference"
           }
         },
         "required": [
@@ -4556,16 +4571,19 @@
           "enabled"
         ]
       },
+      "UpdateSubscriberPreferenceRequestDtoChannel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ChannelPreference"
+          }
+        ]
+      },
       "UpdateSubscriberPreferenceRequestDto": {
         "type": "object",
         "properties": {
           "channel": {
             "description": "The subscriber preferences for every ChannelTypeEnum for the notification template assigned.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ChannelPreference"
-              }
-            ]
+            "$ref": "#/components/schemas/ChannelPreference"
           },
           "enabled": {
             "type": "boolean",
@@ -5392,6 +5410,15 @@
           "yearlySent"
         ]
       },
+      "ActivityGraphStatesResponseItems": {
+        "enum": [
+          "in_app",
+          "email",
+          "sms",
+          "chat",
+          "push"
+        ]
+      },
       "ActivityGraphStatesResponse": {
         "type": "object",
         "properties": {
@@ -5411,13 +5438,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [
-                "in_app",
-                "email",
-                "sms",
-                "chat",
-                "push"
-              ]
+              "$ref": "#/components/schemas/ActivityGraphStatesResponseItems"
             }
           }
         },
