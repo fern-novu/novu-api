@@ -1400,7 +1400,7 @@
     },
     "/v1/subscribers/{subscriberId}": {
       "get": {
-        "operationId": "SubscribersController_getSubscriber",
+        "operationId": "get",
         "summary": "Get subscriber",
         "description": "Get subscriber by your internal id used to identify the subscriber",
         "parameters": [
