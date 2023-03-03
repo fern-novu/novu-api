@@ -3,7 +3,7 @@
   "paths": {
     "/v1/inbound-parse/mx/status": {
       "get": {
-        "operationId": "InboundParseController_getMxRecordStatus",
+        "operationId": "get",
         "summary": "Validate the mx record setup for the inbound parse functionality",
         "parameters": [],
         "responses": {
@@ -29,7 +29,7 @@
     },
     "/v1/environments/me": {
       "get": {
-        "operationId": "EnvironmentsController_getCurrentEnvironment",
+        "operationId": "get",
         "summary": "Get current environment",
         "parameters": [],
         "responses": {
@@ -52,7 +52,7 @@
     },
     "/v1/environments": {
       "post": {
-        "operationId": "EnvironmentsController_createEnvironment",
+        "operationId": "create",
         "summary": "Create environment",
         "parameters": [],
         "requestBody": {
@@ -83,7 +83,7 @@
         "x-request-name": "EnvironmentsController_createEnvironmentRequest"
       },
       "get": {
-        "operationId": "EnvironmentsController_getMyEnvironments",
+        "operationId": "get",
         "summary": "Get environments",
         "parameters": [],
         "responses": {
@@ -109,7 +109,7 @@
     },
     "/v1/environments/{environmentId}": {
       "put": {
-        "operationId": "EnvironmentsController_updateMyEnvironment",
+        "operationId": "update",
         "summary": "Update env by id",
         "parameters": [
           {
@@ -144,7 +144,7 @@
     },
     "/v1/environments/api-keys": {
       "get": {
-        "operationId": "EnvironmentsController_getOrganizationApiKeys",
+        "operationId": "get",
         "summary": "Get api keys",
         "parameters": [],
         "responses": {
@@ -170,7 +170,7 @@
     },
     "/v1/environments/api-keys/regenerate": {
       "post": {
-        "operationId": "EnvironmentsController_regenerateOrganizationApiKeys",
+        "operationId": "regenerate",
         "summary": "Regenerate api keys",
         "parameters": [],
         "responses": {
@@ -196,7 +196,7 @@
     },
     "/v1/environments/widget/settings": {
       "put": {
-        "operationId": "EnvironmentsController_updateWidgetSettings",
+        "operationId": "update",
         "summary": "Update widget settings",
         "parameters": [],
         "requestBody": {
@@ -229,7 +229,7 @@
     },
     "/v1/notification-groups": {
       "post": {
-        "operationId": "NotificationGroupsController_createNotificationGroup",
+        "operationId": "create",
         "summary": "Create notification group",
         "parameters": [],
         "requestBody": {
@@ -260,7 +260,7 @@
         "x-request-name": "NotificationGroupsController_createNotificationGroupRequest"
       },
       "get": {
-        "operationId": "NotificationGroupsController_getNotificationGroups",
+        "operationId": "get",
         "summary": "Get notification groups",
         "parameters": [],
         "responses": {
@@ -286,7 +286,7 @@
     },
     "/v1/changes": {
       "get": {
-        "operationId": "ChangesController_getChanges",
+        "operationId": "get",
         "summary": "Get changes",
         "parameters": [
           {
@@ -338,7 +338,7 @@
     },
     "/v1/changes/count": {
       "get": {
-        "operationId": "ChangesController_getChangesCount",
+        "operationId": "get",
         "summary": "Get changes count",
         "parameters": [],
         "responses": {
@@ -361,7 +361,7 @@
     },
     "/v1/changes/bulk/apply": {
       "post": {
-        "operationId": "ChangesController_bulkApplyDiff",
+        "operationId": "apply",
         "summary": "Apply changes",
         "parameters": [],
         "responses": {
@@ -387,7 +387,7 @@
     },
     "/v1/changes/{changeId}/apply": {
       "post": {
-        "operationId": "ChangesController_applyDiff",
+        "operationId": "apply",
         "summary": "Apply change",
         "parameters": [
           {
@@ -422,7 +422,7 @@
     },
     "/v1/layouts": {
       "post": {
-        "operationId": "LayoutsController_createLayout",
+        "operationId": "create",
         "summary": "Layout creation",
         "description": "Create a layout",
         "parameters": [],
@@ -454,7 +454,7 @@
         "x-request-name": "LayoutsController_createLayoutRequest"
       },
       "get": {
-        "operationId": "LayoutsController_filterLayouts",
+        "operationId": "filter",
         "summary": "Filter layouts",
         "description": "Returns a list of layouts that can be paginated using the `page` query parameter and filtered by the environment where it is executed from the organization the user belongs to.",
         "parameters": [
@@ -522,7 +522,7 @@
     },
     "/v1/layouts/{layoutId}": {
       "get": {
-        "operationId": "LayoutsController_getLayout",
+        "operationId": "get",
         "summary": "Get layout",
         "description": "Get a layout by its ID",
         "parameters": [
@@ -556,7 +556,7 @@
         "x-request-name": "LayoutsController_getLayoutRequest"
       },
       "delete": {
-        "operationId": "LayoutsController_deleteLayout",
+        "operationId": "delete",
         "summary": "Delete layout",
         "description": "Execute a soft delete of a layout given a certain ID.",
         "parameters": [
@@ -586,7 +586,7 @@
         "x-request-name": "LayoutsController_deleteLayoutRequest"
       },
       "patch": {
-        "operationId": "LayoutsController_updateLayout",
+        "operationId": "update",
         "summary": "Update a layout",
         "description": "Update the name, content and variables of a layout. Also change it to be default or no.",
         "parameters": [
@@ -638,7 +638,7 @@
     },
     "/v1/layouts/{layoutId}/default": {
       "post": {
-        "operationId": "LayoutsController_setDefaultLayout",
+        "operationId": "set",
         "summary": "Set default layout",
         "description": "Sets the default layout for the environment and updates to non default to the existing default layout (if any).",
         "parameters": [
@@ -667,7 +667,7 @@
     },
     "/v1/execution-details": {
       "get": {
-        "operationId": "ExecutionDetailsController_getExecutionDetailsForNotification",
+        "operationId": "get",
         "summary": "Get execution details",
         "parameters": [
           {
@@ -710,7 +710,7 @@
     },
     "/v1/notification-templates": {
       "get": {
-        "operationId": "NotificationTemplateController_getNotificationTemplates",
+        "operationId": "get",
         "summary": "Get notification templates",
         "parameters": [
           {
@@ -751,7 +751,7 @@
         "x-request-name": "NotificationTemplateController_getNotificationTemplatesRequest"
       },
       "post": {
-        "operationId": "NotificationTemplateController_createNotificationTemplates",
+        "operationId": "create",
         "summary": "Create notification template",
         "parameters": [],
         "requestBody": {
@@ -784,7 +784,7 @@
     },
     "/v1/notification-templates/{templateId}": {
       "put": {
-        "operationId": "NotificationTemplateController_updateTemplateById",
+        "operationId": "update",
         "summary": "Update notification template",
         "parameters": [
           {
@@ -824,7 +824,7 @@
         "x-request-name": "NotificationTemplateController_updateTemplateByIdRequest"
       },
       "delete": {
-        "operationId": "NotificationTemplateController_deleteTemplateById",
+        "operationId": "delete",
         "summary": "Delete notification template",
         "parameters": [
           {
@@ -854,7 +854,7 @@
         "x-request-name": "NotificationTemplateController_deleteTemplateByIdRequest"
       },
       "get": {
-        "operationId": "NotificationTemplateController_getNotificationTemplateById",
+        "operationId": "get",
         "summary": "Get notification template",
         "parameters": [
           {
@@ -886,7 +886,7 @@
     },
     "/v1/notification-templates/{templateId}/blueprint": {
       "get": {
-        "operationId": "NotificationTemplateController_getNotificationTemplateBlueprintById",
+        "operationId": "get",
         "parameters": [
           {
             "name": "templateId",
@@ -908,7 +908,7 @@
         "x-request-name": "NotificationTemplateController_getNotificationTemplateBlueprintByIdRequest"
       },
       "post": {
-        "operationId": "NotificationTemplateController_createNotificationTemplateFromBlueprintById",
+        "operationId": "create",
         "parameters": [
           {
             "name": "templateId",
@@ -932,7 +932,7 @@
     },
     "/v1/notification-templates/{templateId}/status": {
       "put": {
-        "operationId": "NotificationTemplateController_changeActiveStatus",
+        "operationId": "update",
         "summary": "Update notification template status",
         "parameters": [
           {
@@ -974,7 +974,7 @@
     },
     "/v1/integrations": {
       "get": {
-        "operationId": "IntegrationsController_getIntegrations",
+        "operationId": "get",
         "summary": "Get integrations",
         "parameters": [],
         "responses": {
@@ -998,7 +998,7 @@
         "x-request-name": "IntegrationsController_getIntegrationsRequest"
       },
       "post": {
-        "operationId": "IntegrationsController_createIntegration",
+        "operationId": "create",
         "summary": "Create integration",
         "parameters": [],
         "requestBody": {
@@ -1031,7 +1031,7 @@
     },
     "/v1/integrations/active": {
       "get": {
-        "operationId": "IntegrationsController_getActiveIntegrations",
+        "operationId": "get",
         "summary": "Get active integrations",
         "parameters": [],
         "responses": {
@@ -1057,7 +1057,7 @@
     },
     "/v1/integrations/webhook/provider/{providerId}/status": {
       "get": {
-        "operationId": "IntegrationsController_getWebhookSupportStatus",
+        "operationId": "get",
         "summary": "Get webhook support status for provider",
         "parameters": [
           {
@@ -1082,7 +1082,7 @@
     },
     "/v1/integrations/{integrationId}": {
       "put": {
-        "operationId": "IntegrationsController_updateIntegrationById",
+        "operationId": "update",
         "summary": "Update integration",
         "parameters": [
           {
@@ -1122,7 +1122,7 @@
         "x-request-name": "IntegrationsController_updateIntegrationByIdRequest"
       },
       "delete": {
-        "operationId": "IntegrationsController_removeIntegration",
+        "operationId": "delete",
         "summary": "Delete integration",
         "parameters": [
           {
@@ -1157,7 +1157,7 @@
     },
     "/v1/integrations/{channelType}/limit": {
       "get": {
-        "operationId": "IntegrationsController_getProviderLimit",
+        "operationId": "get",
         "parameters": [
           {
             "name": "channelType",
@@ -1181,7 +1181,7 @@
     },
     "/v1/integrations/in-app/status": {
       "get": {
-        "operationId": "IntegrationsController_getInAppActivated",
+        "operationId": "get",
         "parameters": [],
         "responses": {
           "200": {
@@ -1196,7 +1196,7 @@
     },
     "/v1/events/trigger": {
       "post": {
-        "operationId": "EventsController_trackEvent",
+        "operationId": "trigger",
         "summary": "Trigger event",
         "description": "\n    Trigger event is the main (and the only) way to send notification to subscribers. \n    The trigger identifier is used to match the particular template associated with it. \n    Additional information can be passed according the body interface below.\n    ",
         "parameters": [],
@@ -1230,7 +1230,7 @@
     },
     "/v1/events/trigger/bulk": {
       "post": {
-        "operationId": "EventsController_triggerBulkEvents",
+        "operationId": "trigger",
         "summary": "Bulk trigger event",
         "description": "\n      Using this endpoint you can trigger multiple events at once, to avoid multiple calls to the API.\n      The bulk API is limited to 100 events per request.\n    ",
         "parameters": [],
@@ -1267,7 +1267,7 @@
     },
     "/v1/events/trigger/broadcast": {
       "post": {
-        "operationId": "EventsController_trackEventToAll",
+        "operationId": "broadcast",
         "summary": "Broadcast event to all",
         "description": "Trigger a broadcast event to all existing subscribers, could be used to send announcements, etc.\n      In the future could be used to trigger events to a subset of subscribers based on defined filters.",
         "parameters": [],
@@ -1301,7 +1301,7 @@
     },
     "/v1/events/trigger/{transactionId}": {
       "delete": {
-        "operationId": "EventsController_cancelDelayed",
+        "operationId": "cancel",
         "summary": "Cancel triggered event",
         "description": "\n    Using a previously generated transactionId during the event trigger,\n     will cancel any active or pending workflows. This is useful to cancel active digests, delays etc...\n    ",
         "parameters": [
@@ -1334,7 +1334,7 @@
     },
     "/v1/subscribers": {
       "get": {
-        "operationId": "SubscribersController_getSubscribers",
+        "operationId": "get",
         "summary": "Get subscribers",
         "description": "Returns a list of subscribers, could paginated using the `page` query parameter",
         "parameters": [
@@ -1431,7 +1431,7 @@
         "x-request-name": "SubscribersController_getSubscriberRequest"
       },
       "put": {
-        "operationId": "SubscribersController_updateSubscriber",
+        "operationId": "update",
         "summary": "Update subscriber",
         "description": "Used to update the subscriber entity with new information",
         "parameters": [
@@ -1472,7 +1472,7 @@
         "x-request-name": "SubscribersController_updateSubscriberRequest"
       },
       "delete": {
-        "operationId": "SubscribersController_removeSubscriber",
+        "operationId": "delete",
         "summary": "Delete subscriber",
         "description": "Deletes a subscriber entity from the Novu platform",
         "parameters": [
@@ -1505,7 +1505,7 @@
     },
     "/v1/subscribers/{subscriberId}/credentials": {
       "put": {
-        "operationId": "SubscribersController_updateSubscriberChannel",
+        "operationId": "update",
         "summary": "Update subscriber credentials",
         "description": "Subscriber credentials associated to the delivery methods such as slack and push tokens.",
         "parameters": [
@@ -1548,7 +1548,7 @@
     },
     "/v1/subscribers/{subscriberId}/online-status": {
       "patch": {
-        "operationId": "SubscribersController_updateSubscriberOnlineFlag",
+        "operationId": "update",
         "summary": "Update subscriber online status",
         "description": "Used to update the subscriber isOnline flag.",
         "parameters": [
@@ -1591,7 +1591,7 @@
     },
     "/v1/subscribers/{subscriberId}/preferences": {
       "get": {
-        "operationId": "SubscribersController_getSubscriberPreference",
+        "operationId": "get",
         "summary": "Get subscriber preferences",
         "parameters": [
           {
@@ -1626,7 +1626,7 @@
     },
     "/v1/subscribers/{subscriberId}/preferences/{templateId}": {
       "patch": {
-        "operationId": "SubscribersController_updateSubscriberPreference",
+        "operationId": "update",
         "summary": "Update subscriber preference",
         "parameters": [
           {
@@ -1676,7 +1676,7 @@
     },
     "/v1/subscribers/{subscriberId}/notifications/feed": {
       "get": {
-        "operationId": "SubscribersController_getNotificationsFeed",
+        "operationId": "get",
         "summary": "Get a notification feed for a particular subscriber",
         "parameters": [
           {
@@ -1732,7 +1732,7 @@
     },
     "/v1/subscribers/{subscriberId}/notifications/unseen": {
       "get": {
-        "operationId": "SubscribersController_getUnseenCount",
+        "operationId": "get",
         "summary": "Get the unseen notification count for subscribers feed",
         "parameters": [
           {
@@ -1772,7 +1772,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/{messageId}/seen": {
       "post": {
-        "operationId": "SubscribersController_markMessageAsSeen",
+        "operationId": "create",
         "summary": "Mark a subscriber feed message as seen",
         "description": "This endpoint is deprecated please address /:subscriberId/messages/markAs instead",
         "deprecated": true,
@@ -1814,7 +1814,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/markAs": {
       "post": {
-        "operationId": "SubscribersController_markMessageAs",
+        "operationId": "markAs",
         "summary": "Mark a subscriber feed message as seen",
         "parameters": [
           {
@@ -1856,7 +1856,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/{messageId}/actions/{type}": {
       "post": {
-        "operationId": "SubscribersController_markActionAsSeen",
+        "operationId": "markAsSeen",
         "summary": "Mark message action as seen",
         "parameters": [
           {
@@ -1904,7 +1904,7 @@
     },
     "/v1/topics": {
       "post": {
-        "operationId": "TopicsController_createTopic",
+        "operationId": "create",
         "summary": "Topic creation",
         "description": "Create a topic",
         "parameters": [],
@@ -1936,7 +1936,7 @@
         "x-request-name": "TopicsController_createTopicRequest"
       },
       "get": {
-        "operationId": "TopicsController_filterTopics",
+        "operationId": "filter",
         "summary": "Filter topics",
         "description": "Returns a list of topics that can be paginated using the `page` query parameter and filtered by the topic key with the `key` query parameter",
         "parameters": [
@@ -1988,7 +1988,7 @@
     },
     "/v1/topics/{topicKey}/subscribers": {
       "post": {
-        "operationId": "TopicsController_addSubscribers",
+        "operationId": "add",
         "summary": "Subscribers addition",
         "description": "Add subscribers to a topic by key",
         "parameters": [
@@ -2024,7 +2024,7 @@
     },
     "/v1/topics/{topicKey}/subscribers/removal": {
       "post": {
-        "operationId": "TopicsController_removeSubscribers",
+        "operationId": "remove",
         "summary": "Subscribers removal",
         "description": "Remove subscribers from a topic",
         "parameters": [
@@ -2060,7 +2060,7 @@
     },
     "/v1/topics/{topicKey}": {
       "get": {
-        "operationId": "TopicsController_getTopic",
+        "operationId": "get",
         "summary": "Get topic",
         "description": "Get a topic by its topic key",
         "parameters": [
@@ -2091,7 +2091,7 @@
         "x-request-name": "TopicsController_getTopicRequest"
       },
       "patch": {
-        "operationId": "TopicsController_renameTopic",
+        "operationId": "rename",
         "summary": "Rename a topic",
         "description": "Rename a topic by providing a new name",
         "parameters": [
@@ -2134,7 +2134,7 @@
     },
     "/v1/activity": {
       "get": {
-        "operationId": "ActivityController_getActivityFeed",
+        "operationId": "get",
         "summary": "Get activity feed",
         "deprecated": true,
         "parameters": [
@@ -2224,7 +2224,7 @@
     },
     "/v1/activity/stats": {
       "get": {
-        "operationId": "ActivityController_getActivityStats",
+        "operationId": "get",
         "summary": "Get activity statistics",
         "deprecated": true,
         "parameters": [],
@@ -2248,7 +2248,7 @@
     },
     "/v1/activity/graph/stats": {
       "get": {
-        "operationId": "ActivityController_getActivityGraphStats",
+        "operationId": "get",
         "summary": "Get activity graph statistics",
         "deprecated": true,
         "parameters": [
@@ -2284,7 +2284,7 @@
     },
     "/v1/notifications": {
       "get": {
-        "operationId": "NotificationsController_getNotifications",
+        "operationId": "get",
         "summary": "Get notifications",
         "parameters": [
           {
@@ -2373,7 +2373,7 @@
     },
     "/v1/notifications/stats": {
       "get": {
-        "operationId": "NotificationsController_getActivityStats",
+        "operationId": "get",
         "summary": "Get notification statistics",
         "parameters": [],
         "responses": {
@@ -2396,7 +2396,7 @@
     },
     "/v1/notifications/graph/stats": {
       "get": {
-        "operationId": "NotificationsController_getActivityGraphStats",
+        "operationId": "get",
         "summary": "Get notification graph statistics",
         "parameters": [
           {
@@ -2431,7 +2431,7 @@
     },
     "/v1/notifications/{notificationId}": {
       "get": {
-        "operationId": "NotificationsController_getActivity",
+        "operationId": "get",
         "summary": "Get notification",
         "parameters": [
           {
@@ -2463,7 +2463,7 @@
     },
     "/v1/feeds": {
       "post": {
-        "operationId": "FeedsController_createFeed",
+        "operationId": "create",
         "summary": "Create feed",
         "parameters": [],
         "requestBody": {
@@ -2494,7 +2494,7 @@
         "x-request-name": "FeedsController_createFeedRequest"
       },
       "get": {
-        "operationId": "FeedsController_getFeeds",
+        "operationId": "get",
         "summary": "Get feeds",
         "parameters": [],
         "responses": {
@@ -2520,7 +2520,7 @@
     },
     "/v1/feeds/{feedId}": {
       "delete": {
-        "operationId": "FeedsController_deleteFeedById",
+        "operationId": "delete",
         "summary": "Delete feed",
         "parameters": [
           {
@@ -2555,7 +2555,7 @@
     },
     "/v1/messages": {
       "get": {
-        "operationId": "MessagesController_getMessages",
+        "operationId": "get",
         "summary": "Get messages",
         "description": "Returns a list of messages, could paginate using the `page` query parameter",
         "parameters": [
@@ -2616,7 +2616,7 @@
     },
     "/v1/messages/{messageId}": {
       "delete": {
-        "operationId": "MessagesController_deleteMessage",
+        "operationId": "delete",
         "summary": "Delete message",
         "description": "Deletes a message entity from the Novu platform",
         "parameters": [],
