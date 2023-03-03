@@ -3921,7 +3921,6 @@
       },
       "TopicPayloadDtoType":{
         "type": "string",
-        "enum": []
       },
       "TopicPayloadDto": {
         "type": "object",
