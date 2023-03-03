@@ -109,7 +109,7 @@
     },
     "/v1/environments/{environmentId}": {
       "put": {
-        "operationId": "updateById",
+        "operationId": "update",
         "summary": "Update env by id",
         "parameters": [
           {
@@ -144,7 +144,7 @@
     },
     "/v1/environments/api-keys": {
       "get": {
-        "operationId": "getAPIKey",
+        "operationId": "getApiKeys",
         "summary": "Get api keys",
         "parameters": [],
         "responses": {
@@ -170,7 +170,7 @@
     },
     "/v1/environments/api-keys/regenerate": {
       "post": {
-        "operationId": "regenerate",
+        "operationId": "regenerateApiKeys",
         "summary": "Regenerate api keys",
         "parameters": [],
         "responses": {
@@ -196,7 +196,7 @@
     },
     "/v1/environments/widget/settings": {
       "put": {
-        "operationId": "updateSettings",
+        "operationId": "updateWidgetSettings",
         "summary": "Update widget settings",
         "parameters": [],
         "requestBody": {
