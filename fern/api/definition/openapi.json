@@ -638,7 +638,7 @@
     },
     "/v1/layouts/{layoutId}/default": {
       "post": {
-        "operationId": "set",
+        "operationId": "setDefault",
         "summary": "Set default layout",
         "description": "Sets the default layout for the environment and updates to non default to the existing default layout (if any).",
         "parameters": [
@@ -908,7 +908,7 @@
         "x-request-name": "NotificationTemplateController_getNotificationTemplateBlueprintByIdRequest"
       },
       "post": {
-        "operationId": "create",
+        "operationId": "createFromBlueprint",
         "parameters": [
           {
             "name": "templateId",
@@ -932,7 +932,7 @@
     },
     "/v1/notification-templates/{templateId}/status": {
       "put": {
-        "operationId": "updateById",
+        "operationId": "updateTemplateStatus",
         "summary": "Update notification template status",
         "parameters": [
           {
@@ -974,7 +974,7 @@
     },
     "/v1/integrations": {
       "get": {
-        "operationId": "get",
+        "operationId": "getAll",
         "summary": "Get integrations",
         "parameters": [],
         "responses": {
@@ -1057,7 +1057,7 @@
     },
     "/v1/integrations/webhook/provider/{providerId}/status": {
       "get": {
-        "operationId": "getSupportStatus",
+        "operationId": "getWebhookSupportStatus",
         "summary": "Get webhook support status for provider",
         "parameters": [
           {
@@ -1181,7 +1181,7 @@
     },
     "/v1/integrations/in-app/status": {
       "get": {
-        "operationId": "getStatus",
+        "operationId": "getInAppStatus",
         "parameters": [],
         "responses": {
           "200": {
@@ -1301,7 +1301,7 @@
     },
     "/v1/events/trigger/{transactionId}": {
       "delete": {
-        "operationId": "cancel",
+        "operationId": "cancelEvent",
         "summary": "Cancel triggered event",
         "description": "\n    Using a previously generated transactionId during the event trigger,\n     will cancel any active or pending workflows. This is useful to cancel active digests, delays etc...\n    ",
         "parameters": [
@@ -1548,7 +1548,7 @@
     },
     "/v1/subscribers/{subscriberId}/online-status": {
       "patch": {
-        "operationId": "updateStatus",
+        "operationId": "updateOnlineStatus",
         "summary": "Update subscriber online status",
         "description": "Used to update the subscriber isOnline flag.",
         "parameters": [
@@ -1732,7 +1732,7 @@
     },
     "/v1/subscribers/{subscriberId}/notifications/unseen": {
       "get": {
-        "operationId": "getCount",
+        "operationId": "getUnseenNotificationCount",
         "summary": "Get the unseen notification count for subscribers feed",
         "parameters": [
           {
@@ -1772,7 +1772,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/{messageId}/seen": {
       "post": {
-        "operationId": "markSeen",
+        "operationId": "markMessageSeen",
         "summary": "Mark a subscriber feed message as seen",
         "description": "This endpoint is deprecated please address /:subscriberId/messages/markAs instead",
         "deprecated": true,
@@ -1814,7 +1814,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/markAs": {
       "post": {
-        "operationId": "markAllSeen",
+        "operationId": "markAllMessagesSeen",
         "summary": "Mark a subscriber feed message as seen",
         "parameters": [
           {
@@ -1856,7 +1856,7 @@
     },
     "/v1/subscribers/{subscriberId}/messages/{messageId}/actions/{type}": {
       "post": {
-        "operationId": "markActionSeen",
+        "operationId": "markMessageActionSeen",
         "summary": "Mark message action as seen",
         "parameters": [
           {
@@ -1988,7 +1988,7 @@
     },
     "/v1/topics/{topicKey}/subscribers": {
       "post": {
-        "operationId": "add",
+        "operationId": "addSubscribers",
         "summary": "Subscribers addition",
         "description": "Add subscribers to a topic by key",
         "parameters": [
@@ -2024,7 +2024,7 @@
     },
     "/v1/topics/{topicKey}/subscribers/removal": {
       "post": {
-        "operationId": "remove",
+        "operationId": "removeSubscibers",
         "summary": "Subscribers removal",
         "description": "Remove subscribers from a topic",
         "parameters": [
@@ -2060,7 +2060,7 @@
     },
     "/v1/topics/{topicKey}": {
       "get": {
-        "operationId": "get",
+        "operationId": "getTopicByKey",
         "summary": "Get topic",
         "description": "Get a topic by its topic key",
         "parameters": [
@@ -2134,7 +2134,7 @@
     },
     "/v1/activity": {
       "get": {
-        "operationId": "get",
+        "operationId": "getFeed",
         "summary": "Get activity feed",
         "deprecated": true,
         "parameters": [
