@@ -2556,7 +2556,7 @@
             "in": "query",
             "description": "The channel for the messages you wish to list",
             "schema": {
-              "$ref": "#/components/schemas/GetMessagesParametersSchema"
+              "$ref": "#/components/schemas/ChannelPreferenceType"
             }
           },
           {
@@ -3024,7 +3024,7 @@
             "type": "string"
           },
           "channel": {
-            "$ref": "#/components/schemas/GetLayoutResponseDtoProperties",
+            "$ref": "#/components/schemas/ChannelPreferenceType",
             "type": "string"
           },
           "content": {
@@ -3117,7 +3117,7 @@
             "type": "string"
           },
           "channel": {
-            "$ref": "#/components/schemas/UpdateLayoutRequestDtoProperties",
+            "$ref": "#/components/schemas/ChannelPreferenceType",
             "type": "string"
           },
           "content": {
@@ -3807,15 +3807,6 @@
           }
         }
       },
-      "IntegrationResponseDtoChannelChannel":{
-        "enum": [
-          "in_app",
-          "email",
-          "sms",
-          "chat",
-          "push"
-        ]
-      },
       "IntegrationResponseDto": {
         "type": "object",
         "properties": {
@@ -3832,7 +3823,7 @@
             "type": "string"
           },
           "channel": {
-            "$ref": "#/components/schemas/IntegrationResponseDtoChannelChannel",
+            "$ref": "#/components/schemas/ChannelPreferenceType",
             "type": "string"
           },
           "credentials": {
@@ -3863,15 +3854,6 @@
           "deletedBy"
         ]
       },
-      "CreateEnvironmentRequestDtoChannel": {
-        "enum": [
-          "in_app",
-          "email",
-          "sms",
-          "chat",
-          "push"
-        ]
-      },
       "CreateIntegrationRequestDto": {
         "type": "object",
         "properties": {
@@ -3879,7 +3861,7 @@
             "type": "string"
           },
           "channel": {
-            "$ref": "#/components/schemas/CreateEnvironmentRequestDtoChannel",
+            "$ref": "#/components/schemas/ChannelPreferenceType",
             "type": "string"
           },
           "credentials": {
@@ -3919,9 +3901,6 @@
           "check"
         ]
       },
-      "TopicPayloadDtoType":{
-        "type": "string",
-      },
       "TopicPayloadDto": {
         "type": "object",
         "properties": {
@@ -3929,7 +3908,7 @@
             "type": "string"
           },
           "type": {
-            "$ref": "#/components/schemas/TopicPayloadDtoType"
+            "type": "string"
           }
         },
         "required": [
@@ -3960,24 +3939,6 @@
           }
         }
       },
-      "GetLayoutResponseDtoProperties": {
-        "enum": [
-          "in_app",
-          "email",
-          "sms",
-          "chat",
-          "push"
-        ]
-      },
-      "UpdateLayoutRequestDtoProperties": {
-        "enum": [
-          "in_app",
-          "email",
-          "sms",
-          "chat",
-          "push"
-        ]
-      },
       "ChangeResponseDtoProperties": {
         "enum": [
           "Feed",
@@ -3994,22 +3955,31 @@
             "$ref": "#/components/schemas/SubscriberPayloadDto"
           },
           {
-            "type": "list<$ref: #/components/schemas/SubscriberPayloadDto>",
-            "description": "List of subscriber objects"
+            "description": "List of subscriber objects",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubscriberPayloadDto"
+            }
           },
           {
             "type": "string",
             "description": "Unique identifier of a subscriber in your systems"
           },
           {
-            "type": "string",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "description": "List of subscriber identifiers"
           },
           {
             "$ref": "#/components/schemas/TopicPayloadDto"
           },
           {
-            "type": "[TopicPayloadDto]",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TopicPayloadDto"
+            },
             "description": "List of topics"
           }
         ]
@@ -4053,10 +4023,7 @@
           },
           "to": {
             "description": "The recipients list of people who will receive the notification.",
-            "$ref": "#/components/schemas/TriggerEventRequestDtoTo",
-            "items": {
-              "type": "object"
-            }
+            "$ref": "#/components/schemas/TriggerEventRequestDtoTo"
           },
           "transactionId": {
             "type": "string",
@@ -4206,13 +4173,6 @@
         ],
         "description": "Subscriber credentials for channel"
       },
-      "ChannelSettingsCredentials":{
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ChannelCredentials"
-          }
-        ]
-      },
       "ChannelSettings": {
         "type": "object",
         "properties": {
@@ -4225,7 +4185,7 @@
           },
           "credentials": {
             "description": "Subscriber credentials for channel",
-            "$ref": "#/components/schemas/ChannelSettingsCredentials"
+            "$ref": "#/components/schemas/ChannelCredentials"
           }
         },
         "required": [
@@ -4409,13 +4369,6 @@
         ],
         "description": "The provider identifier for the credentials"
       },
-      "UpdateSubscriberChannelRequestDtoCredentials":{
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ChannelCredentials"
-          }
-        ]
-      },
       "UpdateSubscriberChannelRequestDto": {
         "type": "object",
         "properties": {
@@ -4424,7 +4377,7 @@
           },
           "credentials": {
             "description": "Credentials payload for the specified provider",
-            "$ref": "#/components/schemas/UpdateSubscriberChannelRequestDtoCredentials"
+            "$ref": "#/components/schemas/ChannelCredentials"
           }
         },
         "required": [
@@ -4487,13 +4440,6 @@
           "name",
           "critical"
         ]
-      }, 
-      "PrefenceChannel": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PreferenceChannels"
-          }
-        ]
       },
       "Preference": {
         "type": "object",
@@ -4504,7 +4450,7 @@
           },
           "channels": {
             "description": "Subscriber preferences for the different channels regarding this notification template",
-            "$ref": "#/components/schemas/PrefenceChannel"
+            "$ref": "#/components/schemas/PreferenceChannels"
           }
         },
         "required": [
@@ -4512,30 +4458,16 @@
           "channels"
         ]
       },
-      "UpdateSubscriberPreferenceResponseDtoPreference": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Preference"
-          }
-        ]
-      },
-      "UpdateSubscriberPreferenceResponseDtoTemplate": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TemplateResponse"
-          }
-        ]
-      },
       "UpdateSubscriberPreferenceResponseDto": {
         "type": "object",
         "properties": {
           "template": {
             "description": "The notification template information and if it is critical or not",
-            "$ref": "#/components/schemas/UpdateSubscriberPreferenceResponseDtoTemplate"
+            "$ref": "#/components/schemas/TemplateResponse"
           },
           "preference": {
             "description": "The preferences of the subscriber regarding the related notification template",
-            "$ref": "#/components/schemas/UpdateSubscriberPreferenceResponseDtoPreference"
+            "$ref": "#/components/schemas/Preference"
           }
         },
         "required": [
@@ -4568,13 +4500,6 @@
         "required": [
           "type",
           "enabled"
-        ]
-      },
-      "UpdateSubscriberPreferenceRequestDtoChannel": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ChannelPreference"
-          }
         ]
       },
       "UpdateSubscriberPreferenceRequestDto": {
@@ -4738,22 +4663,15 @@
       "MessageResponseDtoContent": {
         "oneOf": [
           {
-            "$ref": "#/components/schemas/EmailBlock"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmailBlock"
+            }
           },
           {
             "type": "string"
           }
         ]
-      },
-      "MessageResponseDtoChannel": {
-        "enum": [
-          "in_app",
-          "email",
-          "sms",
-          "chat",
-          "push"
-        ],
-        "type": "string"
       },
       "MessageResponseDtoStatus": {
         "type": "string",
@@ -4806,7 +4724,7 @@
             "type": "string"
           },
           "channel": {
-            "$ref": "#/components/schemas/MessageResponseDtoChannel"
+            "$ref": "#/components/schemas/ChannelPreferenceType"
           },
           "seen": {
             "type": "boolean"
@@ -4882,16 +4800,6 @@
           "payload",
           "overrides"
         ]
-      },
-      "GetMessagesParametersSchema": {
-        "enum": [
-          "in_app",
-          "email",
-          "sms",
-          "chat",
-          "push"
-        ],
-        "type": "string"
       },
       "MessagesResponseDto": {
         "type": "object",
@@ -5409,15 +5317,6 @@
           "yearlySent"
         ]
       },
-      "ActivityGraphStatesResponseItems": {
-        "enum": [
-          "in_app",
-          "email",
-          "sms",
-          "chat",
-          "push"
-        ]
-      },
       "ActivityGraphStatesResponse": {
         "type": "object",
         "properties": {
@@ -5437,7 +5336,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "$ref": "#/components/schemas/ActivityGraphStatesResponseItems"
+              "$ref": "#/components/schemas/ChannelPreferenceType"
             }
           }
         },
