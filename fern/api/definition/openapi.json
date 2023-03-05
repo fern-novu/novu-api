@@ -2698,6 +2698,10 @@
     {
       "url": "https://api.novu.co/v1",
       "x-server-name": "Production"
+    }, 
+    {
+      "url": "http://localhost:300",
+      "x-server-name": "Local"
     }
   ],
   "components": {
@@ -5506,11 +5510,10 @@
       }
     },
     "securitySchemes": {
-      "x-api-key": {
-        "name": "x-api-key",
-        "type": "apiKey",
-        "in": "header",
-        "description": "API keys are used to authenticate the requests."
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
