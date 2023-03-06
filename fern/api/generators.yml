@@ -2,7 +2,7 @@ groups:
   publish:
     generators:
       - name: fernapi/fern-typescript-sdk
-        version: 0.2.2
+        version: 0.5.0-rc0-2-gae01b1c1
         output:
           location: npm
           package-name: '@fern-api/novu'

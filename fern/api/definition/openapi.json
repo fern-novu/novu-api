@@ -5410,9 +5410,10 @@
     },
     "securitySchemes": {
       "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "name": "Authorization",
+        "type": "apiKey",
+        "in": "header",
+        "x-header-prefix": "ApiKey"
       }
     }
   }
